@@ -1,0 +1,37 @@
+<div class="filter-container">
+  <label for="category-filter">Filtrar por Categoría:</label>
+  <select id="category-filter">
+    <option value="">Todas</option>
+    <option value="Electric Guitars">Electric Guitars</option>
+    <option value="Acoustic Guitars">Acoustic Guitars</option>
+  </select>
+
+  <label for="sort-filter">Ordenar por Precio:</label>
+  <select id="sort-filter">
+    <option value="asc">Ascendente</option>
+    <option value="desc">Descendente</option>
+  </select>
+
+  <button id="view-cart" onclick="viewCart()">Ver Carrito</button>
+</div>
+
+<ul id="product-list">
+  {{#each products}}
+    <li>
+      <img src="{{this.imageUrl}}" alt="{{this.title}}" class="product-image" />
+      <h3>{{this.title}}</h3>
+      <p>Precio: ${{this.price}}</p>
+      <button onclick="addToCart('{{this._id}}')">Agregar al carrito</button>
+      <a href="/products/{{this._id}}" class="button">Ver Más</a>
+    </li>
+  {{/each}}
+</ul>
+
+<div id="pagination-controls">
+
+  <button>←</button>
+  <span>Página 1 de 2</span>
+  <button>→</button>
+</div>
+
+<script src="/js/products.js"></script>

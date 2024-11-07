@@ -1,0 +1,40 @@
+<h2>Mi Carrito</h2>
+
+{{#if products.length}}
+  <ul id="cart-list">
+    {{#each products}}
+      <li>
+
+        <img
+          src="{{this.product.imageUrl}}"
+          alt="{{this.product.title}}"
+          style="width: 100px; height: auto; border-radius: 5px; margin-right: 10px;"
+        />
+
+        <h3>{{this.product.title}}</h3>
+        <p>Precio: ${{this.product.price}}</p>
+        <p>Cantidad en carrito:
+
+          <button
+            onclick="updateQuantity('{{this.product._id}}', {{this.quantity}}, -1)"
+          >-</button>
+          <span id="quantity-{{this.product._id}}">{{this.quantity}}</span>
+          <button
+            onclick="updateQuantity('{{this.product._id}}', {{this.quantity}}, 1)"
+          >+</button>
+        </p>
+        <button
+          onclick="removeFromCart('{{this.product._id}}')"
+        >Eliminar</button>
+      </li>
+    {{/each}}
+  </ul>
+  <button onclick="clearCart()">Vaciar Carrito</button>
+{{else}}
+  <p>El carrito está vacío.</p>
+{{/if}}
+
+<a href="/products">Seguir comprando</a>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/cart.js"></script>

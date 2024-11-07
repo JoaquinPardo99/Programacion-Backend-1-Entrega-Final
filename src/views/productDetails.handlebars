@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+<img
+  src="{{imageUrl}}"
+  alt="{{title}}"
+  style="width: 300px; height: auto; border-radius: 5px; margin-bottom: 20px;"
+/>
+<p>{{description}}</p>
+<p>Precio: ${{price}}</p>
+<p>Stock: {{stock}}</p>
+<p>Categoría: {{category}}</p>
+<button onclick="addToCart('{{_id}}')">Agregar al carrito</button>
+<a href="/products">Volver a productos</a>
+<script src="/js/products.js"></script>
